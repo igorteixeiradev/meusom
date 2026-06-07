@@ -1,43 +1,65 @@
-<div align="center">
+# Meusom
 
-  <h1>API Monorepo Starter Kit</h1>
+Meusom é um aplicativo que identifica musicas através de aos audios e permite baixar a música encontrada.
 
-  <p>
-    <strong>A dedicated AdonisJS monorepo starter with an API backend and a frontend workspace.</strong>
-  </p>
+## Funcionalidades
 
-</div>
+- [ ] API
+  - [ ] Autenticação e Autorização JWT
+  - [ ] Criar CRUD de Users, Songs, and Favorites
+  - [ ] Encontrar e baixar músicas
+  - [ ] Baixar musicas através de backgroud jobs(Redis)
+  - [ ] Dockerizar a API(DockerFile e Compose)
+  - [ ] Testes E2E com Japa
+- [ ] Dashboard
+  - [ ] Tela de Login
+  - [ ] Tela Home, Users, Songs, and Favorites
+  - [ ] Cache com TanstackQuery
+  - [ ] Testes E2E com Playright
+- [ ] Mobile
+  - [ ] Tela de Home
+  - [ ] Tela de Download
+  - [ ] Testes E2E com Playright
 
----
+## Tecnologias
 
-## ✨ What's in the Box
+- AdonisJS7
+- TanStack Start
+- shadcn/ui
+- TailwindCSS
+- TypeScript
+- Turborepo
+- Docker
+- React Native
 
-- **API backend workspace** in `apps/backend` (AdonisJS + authentication + Tuyau)
-- **Frontend workspace** in `apps/frontend` (intentionally empty, bring your own framework)
-- **Monorepo tooling** with Turborepo and workspaces for coordinated scripts
-
----
-
-## 🚀 Quick Start
+## Instalação
 
 ```bash
-npm init adonisjs@latest -- -K=api-monorepo
-```
+# Clonar o repositório
+git clone https://github.com/igorteixeiradev/meusom.git
 
-Then from your generated project:
+# Entrar no diretório
+cd meusom
 
-```bash
-# Install dependencies
+# Instalar dependências
 npm install
 
-# Run all workspace development scripts
+# Rodar o projeto
 npm run dev
 ```
 
+## Screenshots
+
+<p align="center">
+  <img src="/apps/frontend/public/Screenshot.png" alt="Recarregaaki" width="1200" />
+</p>
+
+## Licença
+
+Este projeto tem licensa MIT.
+
 ---
 
-## 📁 Workspaces
+**Autor**
 
-- [Backend workspace docs](./apps/backend/README.md)
-- [Frontend workspace docs](./apps/frontend/README.md)
-# meusom
+- GitHub: [@igorteixeiradev](https://github.com/igorteixeiradev)
