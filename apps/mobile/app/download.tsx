@@ -1,10 +1,10 @@
 import { ThemeToggle } from '@/components/button-theme';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
-import { Link, Stack } from 'expo-router';
+import { IMAGE_STYLE } from '@/constants/config';
+import { Stack } from 'expo-router';
 import * as React from 'react';
-import { View } from 'react-native';
-
+import { Image, View } from 'react-native';
 
 export const SCREEN_OPTIONS = {
   title: 'Meusom',
@@ -17,17 +17,22 @@ export default function Screen() {
     <>
       <Stack.Screen options={SCREEN_OPTIONS} />
       <View className="flex-1 items-center justify-center gap-8 p-4">
+        <Image
+          source={require('@/assets/images/king-von.jpeg')}
+          style={IMAGE_STYLE}
+          resizeMode="contain"
+        />
         <View className="gap-2 p-4">
-          <Text variant="h3" className="ios:text-foreground text-muted-foreground font-mono">
-            Click para encontrar
+          <Text
+            variant="h3"
+            className="ios:text-foreground text-muted-foreground text-center font-mono">
+            King Von - Where I from
           </Text>
         </View>
         <View className="flex-row gap-2">
-          <Link href="/download" asChild>
-            <Button variant="destructive" className="h-40 w-40 rounded-full">
-              <Text className="text-lg">Ouvir</Text>
-            </Button>
-          </Link>
+          <Button variant="destructive" className='w-full'>
+            <Text>Baixar música</Text>
+          </Button>
         </View>
       </View>
     </>
