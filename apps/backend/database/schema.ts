@@ -25,15 +25,38 @@ export class AuthAccessTokenSchema extends BaseModel {
   @column()
   declare name: string | null
   @column()
-  declare tokenableId: string
+  declare tokenableId: number
   @column()
   declare type: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 }
 
+export class SongSchema extends BaseModel {
+  static $columns = ['album', 'artist', 'createdAt', 'duration', 'fileName', 'id', 'title', 'updatedAt', 'userId'] as const
+  $columns = SongSchema.$columns
+  @column()
+  declare album: string | null
+  @column()
+  declare artist: string | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare duration: number | null
+  @column()
+  declare fileName: string | null
+  @column({ isPrimary: true })
+  declare id: string
+  @column()
+  declare title: string | null
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column()
+  declare userId: number
+}
+
 export class UserSchema extends BaseModel {
-  static $columns = ['createdAt', 'email', 'fullName', 'password', 'uid', 'updatedAt'] as const
+  static $columns = ['createdAt', 'email', 'fullName', 'id', 'password', 'updatedAt'] as const
   $columns = UserSchema.$columns
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -41,10 +64,10 @@ export class UserSchema extends BaseModel {
   declare email: string
   @column()
   declare fullName: string | null
+  @column({ isPrimary: true })
+  declare id: number
   @column({ serializeAs: null })
   declare password: string
-  @column({ isPrimary: true })
-  declare uid: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 }

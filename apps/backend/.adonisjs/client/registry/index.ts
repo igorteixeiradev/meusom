@@ -6,6 +6,12 @@ import type { ApiDefinition } from './tree.d.ts'
 const placeholder: any = {}
 
 const routes = {
+  'drive.fs.serve': {
+    methods: ["GET","HEAD"],
+    pattern: '/uploads/*',
+    tokens: [{"old":"/uploads/*","type":0,"val":"uploads","end":""},{"old":"/uploads/*","type":2,"val":"*","end":""}],
+    types: placeholder as Registry['drive.fs.serve']['types'],
+  },
   'auth.new_account.store': {
     methods: ["POST"],
     pattern: '/api/v1/auth/signup',
@@ -29,6 +35,18 @@ const routes = {
     pattern: '/api/v1/account/logout',
     tokens: [{"old":"/api/v1/account/logout","type":0,"val":"api","end":""},{"old":"/api/v1/account/logout","type":0,"val":"v1","end":""},{"old":"/api/v1/account/logout","type":0,"val":"account","end":""},{"old":"/api/v1/account/logout","type":0,"val":"logout","end":""}],
     types: placeholder as Registry['profile.access_tokens.destroy']['types'],
+  },
+  'songs.find.store': {
+    methods: ["POST"],
+    pattern: '/api/v1/songs/find',
+    tokens: [{"old":"/api/v1/songs/find","type":0,"val":"api","end":""},{"old":"/api/v1/songs/find","type":0,"val":"v1","end":""},{"old":"/api/v1/songs/find","type":0,"val":"songs","end":""},{"old":"/api/v1/songs/find","type":0,"val":"find","end":""}],
+    types: placeholder as Registry['songs.find.store']['types'],
+  },
+  'songs.download.store': {
+    methods: ["POST"],
+    pattern: '/api/v1/songs/download',
+    tokens: [{"old":"/api/v1/songs/download","type":0,"val":"api","end":""},{"old":"/api/v1/songs/download","type":0,"val":"v1","end":""},{"old":"/api/v1/songs/download","type":0,"val":"songs","end":""},{"old":"/api/v1/songs/download","type":0,"val":"download","end":""}],
+    types: placeholder as Registry['songs.download.store']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 

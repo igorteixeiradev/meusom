@@ -5,9 +5,24 @@
 
 /// <reference path="./manifest.d.ts" />
 import type { InferData, InferVariants } from '@adonisjs/core/types/transformers'
+import type DownloadTransformer from '#transformers/download_transformer'
+import type MusicTransformer from '#transformers/music_transformer'
+import type SongTransformer from '#transformers/song_transformer'
 import type UserTransformer from '#transformers/user_transformer'
 
 export namespace Data {
+  export type Download = InferData<DownloadTransformer>
+  export namespace Download {
+    export type Variants = InferVariants<DownloadTransformer>
+  }
+  export type Music = InferData<MusicTransformer>
+  export namespace Music {
+    export type Variants = InferVariants<MusicTransformer>
+  }
+  export type Song = InferData<SongTransformer>
+  export namespace Song {
+    export type Variants = InferVariants<SongTransformer>
+  }
   export type User = InferData<UserTransformer>
   export namespace User {
     export type Variants = InferVariants<UserTransformer>

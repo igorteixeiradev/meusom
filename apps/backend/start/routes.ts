@@ -33,5 +33,14 @@ router
       .prefix('account')
       .as('profile')
       .use(middleware.auth())
+
+    router
+      .group(() => {
+        router.post('find', [controllers.Find, 'store'])
+        router.post('download', [controllers.Download, 'store'])
+      })
+      .prefix('songs')
+      .as('songs')
+      .use(middleware.auth())
   })
   .prefix('/api/v1')

@@ -1,7 +1,11 @@
 import { UserFactory } from '#database/factories/user_factory'
 import { test } from '@japa/runner'
+import testUtils from '@adonisjs/core/services/test_utils'
 
-test.group('Auth signup', () => {
+test.group('Auth signup', (group) => {
+  group.each.setup(() => {
+    return testUtils.db().truncate()
+  })
   test('return error when required fields are not provided', async ({ client }) => {
     const response = await client.visit('auth.new_account.store')
 

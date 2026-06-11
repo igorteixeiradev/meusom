@@ -5,6 +5,9 @@
 
 export const controllers = {
   AccessTokens: () => import('#controllers/access_tokens_controller'),
+  Download: () => import('#controllers/download_controller'),
+  Find: () => import('#controllers/find_controller'),
   NewAccount: () => import('#controllers/new_account_controller'),
   Profile: () => import('#controllers/profile_controller'),
+  Songs: () => import('#controllers/songs_controller'),
 }

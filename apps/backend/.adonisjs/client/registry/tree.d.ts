@@ -2,6 +2,11 @@
 import type { routes } from './index.ts'
 
 export interface ApiDefinition {
+  drive: {
+    fs: {
+      serve: typeof routes['drive.fs.serve']
+    }
+  }
   auth: {
     newAccount: {
       store: typeof routes['auth.new_account.store']
@@ -16,6 +21,14 @@ export interface ApiDefinition {
     }
     accessTokens: {
       destroy: typeof routes['profile.access_tokens.destroy']
+    }
+  }
+  songs: {
+    find: {
+      store: typeof routes['songs.find.store']
+    }
+    download: {
+      store: typeof routes['songs.download.store']
     }
   }
 }
